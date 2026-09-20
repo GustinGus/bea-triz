@@ -50,6 +50,8 @@
 
     musicToggle.hidden = false;
 
+    document.dispatchEvent(new CustomEvent('letter:revealed'));
+
     // Move o foco para a carta ao final da transição, para quem navega
     // por teclado/leitor de tela perceber a mudança de contexto.
     window.setTimeout(() => {

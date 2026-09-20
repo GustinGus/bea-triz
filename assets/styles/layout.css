@@ -44,7 +44,12 @@ body[data-stage='intro'] .screen-letter {
 }
 
 /* --------------------------------------------------------------------------
-   Campo de rosas de fundo (marca d'água) — comum às duas telas
+   Campo de rosas de fundo (marca d'água) — comum às duas telas.
+   Cada instância define --o (opacidade-base) e --t (rotação/escala) via
+   propriedades customizadas; a regra compartilhada abaixo aplica um
+   "respirar" muito lento e sutil (só opacidade, nunca transform, para não
+   competir com a leitura) com duração/atraso próprios por instância, para
+   que nenhuma pulse em sincronia com a vizinha.
    -------------------------------------------------------------------------- */
 
 .rose-field {
@@ -58,29 +63,37 @@ body[data-stage='intro'] .screen-letter {
 .rose-field .rose {
   position: absolute;
   color: var(--color-rose-bg);
+  opacity: var(--o, 0.04);
+  transform: var(--t, none);
+  animation: rose-breathe var(--breathe-duration, 12s) ease-in-out infinite;
+  animation-delay: var(--breathe-delay, 0s);
 }
 
 /* Tela 1 — instâncias editoriais (posição, escala, rotação e opacidade
    variam para nunca formar um padrão repetitivo óbvio) */
-.rose-field--intro .rose--01 { top: 6%;  left: 5%;  width: 92px;  opacity: 0.05; transform: rotate(-18deg) scale(1); }
-.rose-field--intro .rose--02 { top: 62%; left: 9%;  width: 56px;  opacity: 0.045; transform: rotate(24deg) scale(0.9); }
-.rose-field--intro .rose--03 { top: 12%; right: 7%; width: 70px;  opacity: 0.04; transform: rotate(9deg) scale(1); }
-.rose-field--intro .rose--04 { bottom: 8%; right: 11%; width: 100px; opacity: 0.055; transform: rotate(-8deg) scale(1.05); }
-.rose-field--intro .rose--05 { bottom: 14%; left: 22%; width: 46px; opacity: 0.035; transform: rotate(33deg) scale(0.8); }
-.rose-field--intro .rose--06 { top: 40%; right: 27%; width: 40px; opacity: 0.03; transform: rotate(-30deg) scale(0.75); }
+.rose-field--intro .rose--01 { top: 6%;  left: 5%;  width: 92px;  --o: 0.05;  --t: rotate(-18deg) scale(1);    --breathe-duration: 13s; --breathe-delay: -1s; }
+.rose-field--intro .rose--02 { top: 62%; left: 9%;  width: 56px;  --o: 0.045; --t: rotate(24deg) scale(0.9);   --breathe-duration: 15s; --breathe-delay: -6s; }
+.rose-field--intro .rose--03 { top: 12%; right: 7%; width: 70px;  --o: 0.04;  --t: rotate(9deg) scale(1);      --breathe-duration: 11s; --breathe-delay: -3s; }
+.rose-field--intro .rose--04 { bottom: 8%; right: 11%; width: 100px; --o: 0.055; --t: rotate(-8deg) scale(1.05); --breathe-duration: 17s; --breathe-delay: -8s; }
+.rose-field--intro .rose--05 { bottom: 14%; left: 22%; width: 46px; --o: 0.035; --t: rotate(33deg) scale(0.8); --breathe-duration: 14s; --breathe-delay: -4s; }
+.rose-field--intro .rose--06 { top: 40%; right: 27%; width: 40px; --o: 0.03;  --t: rotate(-30deg) scale(0.75); --breathe-duration: 16s; --breathe-delay: -9s; }
 
 /* Tela 2 — distribuídas ao longo de toda a altura (%) da carta, para
    acompanhar a rolagem sem se concentrar apenas no topo */
-.rose-field--letter .rose--01 { top: 2%;  left: 3%;  width: 80px;  opacity: 0.045; transform: rotate(14deg) scale(1); }
-.rose-field--letter .rose--02 { top: 9%;  right: 4%; width: 54px;  opacity: 0.035; transform: rotate(-22deg) scale(0.85); }
-.rose-field--letter .rose--03 { top: 22%; left: 12%; width: 38px;  opacity: 0.03; transform: rotate(40deg) scale(0.7); }
-.rose-field--letter .rose--04 { top: 33%; right: 16%; width: 96px; opacity: 0.05; transform: rotate(-6deg) scale(1.1); }
-.rose-field--letter .rose--05 { top: 47%; left: 2%;  width: 64px;  opacity: 0.04; transform: rotate(20deg) scale(0.9); }
-.rose-field--letter .rose--06 { top: 58%; right: 6%; width: 44px;  opacity: 0.035; transform: rotate(-34deg) scale(0.8); }
-.rose-field--letter .rose--07 { top: 69%; left: 9%;  width: 84px;  opacity: 0.045; transform: rotate(11deg) scale(1); }
-.rose-field--letter .rose--08 { top: 79%; right: 12%; width: 50px; opacity: 0.03; transform: rotate(-16deg) scale(0.75); }
-.rose-field--letter .rose--09 { top: 90%; left: 20%; width: 70px; opacity: 0.04; transform: rotate(27deg) scale(0.95); }
-.rose-field--letter .rose--10 { top: 96%; right: 22%; width: 40px; opacity: 0.03; transform: rotate(-40deg) scale(0.7); }
+.rose-field--letter .rose--01 { top: 1%;  left: 3%;  width: 78px; --o: 0.045; --t: rotate(14deg) scale(1);     --breathe-duration: 12s; --breathe-delay: -2s; }
+.rose-field--letter .rose--02 { top: 6%;  right: 4%; width: 52px; --o: 0.035; --t: rotate(-22deg) scale(0.85); --breathe-duration: 14s; --breathe-delay: -5s; }
+.rose-field--letter .rose--03 { top: 13%; left: 12%; width: 36px; --o: 0.03;  --t: rotate(40deg) scale(0.7);   --breathe-duration: 18s; --breathe-delay: -1s; }
+.rose-field--letter .rose--04 { top: 20%; right: 16%; width: 90px; --o: 0.05; --t: rotate(-6deg) scale(1.1);   --breathe-duration: 13s; --breathe-delay: -7s; }
+.rose-field--letter .rose--05 { top: 29%; left: 2%;  width: 60px; --o: 0.04;  --t: rotate(20deg) scale(0.9);   --breathe-duration: 16s; --breathe-delay: -3s; }
+.rose-field--letter .rose--06 { top: 37%; right: 6%; width: 42px; --o: 0.035; --t: rotate(-34deg) scale(0.8);  --breathe-duration: 15s; --breathe-delay: -9s; }
+.rose-field--letter .rose--07 { top: 45%; left: 9%;  width: 80px; --o: 0.045; --t: rotate(11deg) scale(1);     --breathe-duration: 11s; --breathe-delay: -4s; }
+.rose-field--letter .rose--08 { top: 53%; right: 12%; width: 48px; --o: 0.03; --t: rotate(-16deg) scale(0.75); --breathe-duration: 17s; --breathe-delay: -6s; }
+.rose-field--letter .rose--09 { top: 61%; left: 20%; width: 66px; --o: 0.04;  --t: rotate(27deg) scale(0.95);  --breathe-duration: 14s; --breathe-delay: -10s; }
+.rose-field--letter .rose--10 { top: 68%; right: 22%; width: 38px; --o: 0.03; --t: rotate(-40deg) scale(0.7);  --breathe-duration: 19s; --breathe-delay: -2s; }
+.rose-field--letter .rose--11 { top: 76%; left: 6%;  width: 72px; --o: 0.045; --t: rotate(17deg) scale(1);     --breathe-duration: 12s; --breathe-delay: -8s; }
+.rose-field--letter .rose--12 { top: 83%; right: 9%; width: 44px; --o: 0.035; --t: rotate(-28deg) scale(0.8);  --breathe-duration: 16s; --breathe-delay: -5s; }
+.rose-field--letter .rose--13 { top: 90%; left: 15%; width: 58px; --o: 0.03;  --t: rotate(31deg) scale(0.85);  --breathe-duration: 18s; --breathe-delay: -1s; }
+.rose-field--letter .rose--14 { top: 96%; right: 18%; width: 40px; --o: 0.03; --t: rotate(-19deg) scale(0.75); --breathe-duration: 13s; --breathe-delay: -7s; }
 
 /* --------------------------------------------------------------------------
    Tela 1 — abertura minimalista
@@ -138,13 +151,53 @@ body[data-stage='intro'] .screen-letter {
   margin: 0 0 var(--space-8);
 }
 
-/* Fotografias — mobile-first: fluem entre os parágrafos, alternando lado */
+/* Letra capitular no parágrafo de abertura — um detalhe editorial de carta
+   trabalhada à mão, só tipografia, sem elementos decorativos genéricos. */
+.letter__text--opening p:first-child::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.82;
+  font-weight: 500;
+  padding: 0.03em 0.09em 0 0;
+}
+
+/* Marca de encerramento — uma única rosa pequena e discreta acima da
+   assinatura, no lugar de um selo/coração genérico. */
+.letter__mark {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-7) 0 var(--space-3);
+}
+
+.letter__mark .rose {
+  width: 26px;
+  color: var(--color-accent);
+  opacity: 0.4;
+}
+
+.letter__signature {
+  text-align: center;
+  font-style: italic;
+}
+
+/* Fotografias — mobile-first: fluem entre os parágrafos, alternando lado.
+   A rotação de cada posição fica em --rotate (custom property) para poder
+   ser combinada com a animação de revelação (translateY) sem conflito. */
 .photo {
   position: relative;
   width: min(78%, 320px);
   aspect-ratio: 4 / 5;
   margin: var(--space-8) auto;
   z-index: 1;
+  opacity: 0;
+  transform: rotate(var(--rotate, 0deg)) translateY(22px);
+  transition: opacity 900ms var(--ease-elegant),
+              transform 900ms var(--ease-elegant);
+}
+
+.photo.is-visible {
+  opacity: 1;
+  transform: rotate(var(--rotate, 0deg)) translateY(0);
 }
 
 .photo:nth-of-type(odd) {
@@ -201,38 +254,58 @@ body[data-stage='intro'] .screen-letter {
   color: rgba(0, 0, 0, 0.55);
 }
 
-/* Pequenas rotações editoriais — nunca exageradas */
-.photo--1 { transform: rotate(-3deg); }
-.photo--2 { transform: rotate(1.5deg); }
-.photo--3 { transform: rotate(2deg); }
-.photo--4 { transform: rotate(-1deg); }
-.photo--5 { transform: rotate(2.5deg); }
-.photo--6 { transform: rotate(-2deg); }
+/* Pequenas rotações editoriais — nunca exageradas. Estrutura preparada
+   para 12 fotografias (photo--1 .. photo--12); use quantas precisar. */
+.photo--1  { --rotate: -3deg; }
+.photo--2  { --rotate: 1.5deg; }
+.photo--3  { --rotate: 2deg; }
+.photo--4  { --rotate: -1deg; }
+.photo--5  { --rotate: 2.5deg; }
+.photo--6  { --rotate: -2deg; }
+.photo--7  { --rotate: 3deg; }
+.photo--8  { --rotate: -1.5deg; }
+.photo--9  { --rotate: 2deg; }
+.photo--10 { --rotate: -2.5deg; }
+.photo--11 { --rotate: 1deg; }
+.photo--12 { --rotate: -3deg; }
 
 /* --------------------------------------------------------------------------
    Composição editorial ampla — fotos "espalhadas" ao redor do texto.
    Ativa apenas a partir de 1300px, onde há espaço horizontal garantido
    nas laterais do texto (medida de leitura) sem nunca sobrepor a coluna
    central. Abaixo disso as fotos permanecem no fluxo (regras acima).
+   Larguras e distâncias mantidas propositalmente conservadoras (<=210px,
+   deslocamento <=20px) para que, mesmo com o "sangramento" das rosas no
+   hover, nada se aproxime da borda da viewport em nenhuma largura testada.
    -------------------------------------------------------------------------- */
 @media (min-width: 1300px) {
   .letter {
     display: block;
-    min-height: 66rem;
+    min-height: 150rem;
     padding-bottom: var(--space-9);
   }
 
+  /* Cada lado (esquerda/direita) tem 6 fotos distribuídas em passos de
+     ~17% da altura da carta — bem mais que a altura de uma foto (~250-
+     280px mesmo num container de 150rem/2400px), então duas fotos do
+     mesmo lado nunca se tocam, além de nunca invadir a coluna de texto. */
   .photo {
     position: absolute;
     margin: 0;
   }
 
-  .photo--1 { top: 2%;  left: 12px;  width: 210px; transform: rotate(-3deg); }
-  .photo--2 { top: 7%;  right: 18px; width: 190px; transform: rotate(2deg); }
-  .photo--3 { top: 32%; left: 14px;  width: 230px; transform: rotate(1.5deg); }
-  .photo--4 { top: 45%; right: 24px; width: 200px; transform: rotate(-2deg); }
-  .photo--5 { top: 64%; left: 26px;  width: 220px; transform: rotate(2.5deg); }
-  .photo--6 { top: 76%; right: 16px; width: 210px; transform: rotate(-1.5deg); }
+  .photo--1  { top: 1%;   left: 10px;  width: 200px; --rotate: -3deg; }
+  .photo--2  { top: 5%;   right: 16px; width: 180px; --rotate: 2deg; }
+  .photo--3  { top: 18%;  left: 0px;   width: 175px; --rotate: 2.5deg; }
+  .photo--4  { top: 22%;  right: 18px; width: 205px; --rotate: -1.5deg; }
+  .photo--5  { top: 35%;  left: 14px;  width: 210px; --rotate: 1.5deg; }
+  .photo--6  { top: 39%;  right: 6px;  width: 185px; --rotate: -2.5deg; }
+  .photo--7  { top: 52%;  left: 4px;   width: 195px; --rotate: 2deg; }
+  .photo--8  { top: 56%;  right: 20px; width: 200px; --rotate: -1deg; }
+  .photo--9  { top: 69%;  left: 12px;  width: 180px; --rotate: 3deg; }
+  .photo--10 { top: 73%;  right: 2px;  width: 210px; --rotate: -2deg; }
+  .photo--11 { top: 86%;  left: 18px;  width: 190px; --rotate: 1.5deg; }
+  .photo--12 { top: 90%;  right: 8px;  width: 200px; --rotate: -2.5deg; }
 
   /* Mais espaço nas laterais aqui, então as rosas podem ultrapassar
      a borda da foto com mais generosidade. */

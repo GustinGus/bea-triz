@@ -77,17 +77,24 @@
     <svg class="rose rose--08"><use href="#rose-line-art"></use></svg>
     <svg class="rose rose--09"><use href="#rose-line-art"></use></svg>
     <svg class="rose rose--10"><use href="#rose-line-art"></use></svg>
+    <svg class="rose rose--11"><use href="#rose-line-art"></use></svg>
+    <svg class="rose rose--12"><use href="#rose-line-art"></use></svg>
+    <svg class="rose rose--13"><use href="#rose-line-art"></use></svg>
+    <svg class="rose rose--14"><use href="#rose-line-art"></use></svg>
   </div>
 
   <div class="letter">
 
     <!--
-      FOTOGRAFIAS — placeholders.
+      FOTOGRAFIAS — placeholders (estrutura preparada para 12 fotografias).
       Para substituir por fotos reais: troque o "src" de cada <img> por
       assets/images/photos/sua-foto.jpg (ou .webp/.avif) e escreva uma
-      descrição real no "alt". Não altere as classes photo--1..6 nem a
+      descrição real no "alt". Não altere as classes photo--1..12 nem a
       estrutura do .photo__roses — elas controlam a posição editorial e
-      a animação das rosas.
+      a animação das rosas. Se tiver menos de 12 fotos, é só apagar as
+      figuras <figure class="photo photo--N"> extras (de trás para a
+      frente, ex.: primeiro photo--12, depois photo--11...) — o restante
+      da composição se ajusta sozinho.
     -->
     <figure class="photo photo--1">
       <div class="photo__roses" aria-hidden="true">
@@ -116,24 +123,20 @@
            alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
     </figure>
 
-    <div class="letter__text">
-      <!--
-        TEXTO DA CARTA — placeholder.
-        Substitua os parágrafos abaixo pelo texto definitivo. Para aplicar
-        o sublinhado editorial vermelho em uma palavra, envolva-a em
-        <span class="accent-word">palavra</span> — não é link nem botão,
-        apenas ênfase tipográfica. Use com moderação.
-      -->
+    <!--
+      TEXTO DA CARTA — placeholder, ainda provisório (aguardando o texto
+      definitivo). Para aplicar o sublinhado editorial vermelho em uma
+      palavra, envolva-a em <span class="accent-word">palavra</span> — não
+      é link nem botão, apenas ênfase tipográfica. Use com moderação.
+      O texto está dividido em blocos .letter__text para poder intercalar
+      fotos entre parágrafos; sinta-se livre para juntar/quebrar os blocos
+      como fizer sentido para o texto real.
+    -->
+    <div class="letter__text letter__text--opening">
       <p>[Primeiro parágrafo da carta — escreva aqui como tudo começou.]</p>
 
       <!-- Exemplo de uso do sublinhado editorial, a partir do briefing: -->
       <p>Você transformou os meus <span class="accent-word">dias</span> em algo que eu não sabia que era possível sentir.</p>
-
-      <p>[Parágrafo seguinte — continue a carta. Palavras como <span class="accent-word">exemplo</span> podem receber destaque, sem exagerar na quantidade.]</p>
-
-      <p>[Parágrafo final — feche a carta com o que quiser que ela guarde.]</p>
-
-      <p>[Assinatura]</p>
     </div>
 
     <figure class="photo photo--4">
@@ -154,12 +157,84 @@
            alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
     </figure>
 
+    <div class="letter__text">
+      <p>[Parágrafo seguinte — continue a carta. Palavras como <span class="accent-word">exemplo</span> podem receber destaque, sem exagerar na quantidade.]</p>
+    </div>
+
     <figure class="photo photo--6">
       <div class="photo__roses" aria-hidden="true">
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
       </div>
       <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-6.svg"
+           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+    </figure>
+
+    <div class="letter__text">
+      <p>[Mais um parágrafo — este bloco extra existe apenas como espaço reservado até o texto definitivo chegar.]</p>
+    </div>
+
+    <figure class="photo photo--7">
+      <div class="photo__roses" aria-hidden="true">
+        <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
+        <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
+      </div>
+      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-7.svg"
+           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+    </figure>
+
+    <figure class="photo photo--8">
+      <div class="photo__roses" aria-hidden="true">
+        <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
+        <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
+      </div>
+      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-8.svg"
+           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+    </figure>
+
+    <div class="letter__text">
+      <p>[Parágrafo final — feche a carta com o que quiser que ela guarde.]</p>
+
+      <div class="letter__mark" aria-hidden="true">
+        <svg class="rose"><use href="#rose-line-art"></use></svg>
+      </div>
+
+      <p class="letter__signature">[Assinatura]</p>
+    </div>
+
+    <figure class="photo photo--9">
+      <div class="photo__roses" aria-hidden="true">
+        <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
+        <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
+      </div>
+      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-9.svg"
+           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+    </figure>
+
+    <figure class="photo photo--10">
+      <div class="photo__roses" aria-hidden="true">
+        <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
+        <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
+      </div>
+      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-10.svg"
+           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+    </figure>
+
+    <figure class="photo photo--11">
+      <div class="photo__roses" aria-hidden="true">
+        <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
+        <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
+      </div>
+      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-11.svg"
+           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+    </figure>
+
+    <figure class="photo photo--12">
+      <div class="photo__roses" aria-hidden="true">
+        <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
+        <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
+      </div>
+      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-12.svg"
            alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
     </figure>
 

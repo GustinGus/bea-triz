@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" role="img" aria-label="Placeholder de fotografia 8">
+  <rect width="480" height="600" fill="#F2ECE0"/>
+  <rect x="16" y="16" width="448" height="568" fill="none" stroke="#C9BFA8" stroke-width="2" stroke-dasharray="6 8"/>
+  <g fill="none" stroke="#B8AC8E" stroke-width="1.4">
+    <circle cx="240" cy="270" r="46"/>
+    <path d="M188 270 a52 52 0 0 1 104 0" />
+    <path d="M170 330 L310 330 L290 300 L260 340 L230 300 L200 340 L170 300 Z"/>
+  </g>
+  <text x="240" y="430" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-size="20" fill="#8A7F66" letter-spacing="2">FOTO 8 — PLACEHOLDER</text>
+  <text x="240" y="460" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-size="13" fill="#A79C82">substitua por assets/images/photos/placeholder-8.svg</text>
+</svg>

@@ -38,6 +38,15 @@ body[data-stage='intro'] .screen-letter {
 }
 
 /* --------------------------------------------------------------------------
+   Rosas de fundo "respirando" — pulso de opacidade muito lento e sutil,
+   só para dar uma sensação de algo vivo/cuidado, nunca uma distração.
+   -------------------------------------------------------------------------- */
+@keyframes rose-breathe {
+  0%, 100% { opacity: var(--o, 0.04); }
+  50%      { opacity: calc(var(--o, 0.04) * 0.65); }
+}
+
+/* --------------------------------------------------------------------------
    prefers-reduced-motion: sem blur, sem deslocamento — apenas crossfade
    rápido, e sem elevação/zoom nas fotos (a revelação das rosas continua,
    pois é uma mudança de opacidade, não um movimento).
@@ -72,5 +81,17 @@ body[data-stage='intro'] .screen-letter {
 
   .photo__roses {
     transition-duration: 150ms;
+  }
+
+  /* Sem pulso de fundo e sem animação de entrada das fotos ao rolar —
+     tudo aparece direto no estado final. */
+  .rose-field .rose {
+    animation: none;
+  }
+
+  .photo {
+    opacity: 1;
+    transform: rotate(var(--rotate, 0deg));
+    transition: none;
   }
 }
