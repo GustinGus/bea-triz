@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Layout — estágios da experiência, telas, composição da carta
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Estágios (intro <-> carta)
+   A troca de estágio é feita via body[data-stage], ver animations.css para
+   as transições. Aqui definimos apenas a estrutura/posicionamento.
+   -------------------------------------------------------------------------- */
+
+body[data-stage='intro'] {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.screen {
+  width: 100%;
+}
+
+.screen-intro {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+}
+
+body[data-stage='letter'] .screen-intro {
+  position: absolute;
+  inset: 0;
+  min-height: 100vh;
+}
+
+.screen-letter {
+  position: relative;
+  padding-block: var(--space-9) var(--space-10);
+}
+
+body[data-stage='intro'] .screen-letter {
+  position: absolute;
+  inset: 0 0 auto 0;
+  min-height: 100vh;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Campo de rosas de fundo (marca d'água) — comum às duas telas
+   -------------------------------------------------------------------------- */
+
+.rose-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.rose-field .rose {
+  position: absolute;
+  color: var(--color-rose-bg);
+}
+
+/* Tela 1 — instâncias editoriais (posição, escala, rotação e opacidade
+   variam para nunca formar um padrão repetitivo óbvio) */
+.rose-field--intro .rose--01 { top: 6%;  left: 5%;  width: 92px;  opacity: 0.05; transform: rotate(-18deg) scale(1); }
+.rose-field--intro .rose--02 { top: 62%; left: 9%;  width: 56px;  opacity: 0.045; transform: rotate(24deg) scale(0.9); }
+.rose-field--intro .rose--03 { top: 12%; right: 7%; width: 70px;  opacity: 0.04; transform: rotate(9deg) scale(1); }
+.rose-field--intro .rose--04 { bottom: 8%; right: 11%; width: 100px; opacity: 0.055; transform: rotate(-8deg) scale(1.05); }
+.rose-field--intro .rose--05 { bottom: 14%; left: 22%; width: 46px; opacity: 0.035; transform: rotate(33deg) scale(0.8); }
+.rose-field--intro .rose--06 { top: 40%; right: 27%; width: 40px; opacity: 0.03; transform: rotate(-30deg) scale(0.75); }
+
+/* Tela 2 — distribuídas ao longo de toda a altura (%) da carta, para
+   acompanhar a rolagem sem se concentrar apenas no topo */
+.rose-field--letter .rose--01 { top: 2%;  left: 3%;  width: 80px;  opacity: 0.045; transform: rotate(14deg) scale(1); }
+.rose-field--letter .rose--02 { top: 9%;  right: 4%; width: 54px;  opacity: 0.035; transform: rotate(-22deg) scale(0.85); }
+.rose-field--letter .rose--03 { top: 22%; left: 12%; width: 38px;  opacity: 0.03; transform: rotate(40deg) scale(0.7); }
+.rose-field--letter .rose--04 { top: 33%; right: 16%; width: 96px; opacity: 0.05; transform: rotate(-6deg) scale(1.1); }
+.rose-field--letter .rose--05 { top: 47%; left: 2%;  width: 64px;  opacity: 0.04; transform: rotate(20deg) scale(0.9); }
+.rose-field--letter .rose--06 { top: 58%; right: 6%; width: 44px;  opacity: 0.035; transform: rotate(-34deg) scale(0.8); }
+.rose-field--letter .rose--07 { top: 69%; left: 9%;  width: 84px;  opacity: 0.045; transform: rotate(11deg) scale(1); }
+.rose-field--letter .rose--08 { top: 79%; right: 12%; width: 50px; opacity: 0.03; transform: rotate(-16deg) scale(0.75); }
+.rose-field--letter .rose--09 { top: 90%; left: 20%; width: 70px; opacity: 0.04; transform: rotate(27deg) scale(0.95); }
+.rose-field--letter .rose--10 { top: 96%; right: 22%; width: 40px; opacity: 0.03; transform: rotate(-40deg) scale(0.7); }
+
+/* --------------------------------------------------------------------------
+   Tela 1 — abertura minimalista
+   -------------------------------------------------------------------------- */
+
+.intro-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-7);
+  text-align: center;
+  max-width: 28rem;
+}
+
+.intro-phrase {
+  margin: 0;
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   Tela 2 — a carta
+   -------------------------------------------------------------------------- */
+
+.letter {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, var(--letter-max-width));
+  margin-inline: auto;
+}
+
+.letter__text {
+  width: min(100%, var(--measure));
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+}
+
+.letter__text p {
+  margin: 0 0 1.6em;
+}
+
+.letter__text p:last-child {
+  margin-bottom: 0;
+}
+
+.letter__heading {
+  font-size: clamp(1.75rem, 1.4rem + 1.8vw, 2.75rem);
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 var(--space-8);
+}
+
+/* Fotografias — mobile-first: fluem entre os parágrafos, alternando lado */
+.photo {
+  position: relative;
+  width: min(78%, 320px);
+  aspect-ratio: 4 / 5;
+  margin: var(--space-8) auto;
+  z-index: 1;
+}
+
+.photo:nth-of-type(odd) {
+  margin-inline-end: auto;
+  margin-inline-start: var(--space-2);
+}
+
+.photo:nth-of-type(even) {
+  margin-inline-start: auto;
+  margin-inline-end: var(--space-2);
+}
+
+.photo__roses {
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.82);
+  color: var(--color-accent);
+  transition: opacity var(--duration-hover) var(--ease-elegant),
+              transform var(--duration-hover) var(--ease-elegant);
+  pointer-events: none;
+}
+
+.photo__roses .rose {
+  position: absolute;
+}
+
+/* As rosas ultrapassam parcialmente a borda da foto: o contêiner é maior
+   que a imagem (inset negativo acima) e cada rosa fica posicionada perto
+   de uma quina; a parte que cai sobre a foto é ocultada pelo z-index da
+   imagem, restando visível só o "brotar" para fora da borda. */
+.photo__roses .rose--a { top: -8%;  left: -10%; width: 42%; transform: rotate(-14deg); }
+.photo__roses .rose--b { bottom: -10%; right: -8%; width: 46%; transform: rotate(16deg); }
+.photo__roses .rose--c { top: 40%; right: -12%; width: 32%; transform: rotate(-24deg); }
+
+.photo__img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #f2ece0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform var(--duration-hover) var(--ease-elegant),
+              box-shadow var(--duration-hover) var(--ease-elegant);
+}
+
+.photo figcaption {
+  margin-top: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* Pequenas rotações editoriais — nunca exageradas */
+.photo--1 { transform: rotate(-3deg); }
+.photo--2 { transform: rotate(1.5deg); }
+.photo--3 { transform: rotate(2deg); }
+.photo--4 { transform: rotate(-1deg); }
+.photo--5 { transform: rotate(2.5deg); }
+.photo--6 { transform: rotate(-2deg); }
+
+/* --------------------------------------------------------------------------
+   Composição editorial ampla — fotos "espalhadas" ao redor do texto.
+   Ativa apenas a partir de 1300px, onde há espaço horizontal garantido
+   nas laterais do texto (medida de leitura) sem nunca sobrepor a coluna
+   central. Abaixo disso as fotos permanecem no fluxo (regras acima).
+   -------------------------------------------------------------------------- */
+@media (min-width: 1300px) {
+  .letter {
+    display: block;
+    min-height: 66rem;
+    padding-bottom: var(--space-9);
+  }
+
+  .photo {
+    position: absolute;
+    margin: 0;
+  }
+
+  .photo--1 { top: 2%;  left: 12px;  width: 210px; transform: rotate(-3deg); }
+  .photo--2 { top: 7%;  right: 18px; width: 190px; transform: rotate(2deg); }
+  .photo--3 { top: 32%; left: 14px;  width: 230px; transform: rotate(1.5deg); }
+  .photo--4 { top: 45%; right: 24px; width: 200px; transform: rotate(-2deg); }
+  .photo--5 { top: 64%; left: 26px;  width: 220px; transform: rotate(2.5deg); }
+  .photo--6 { top: 76%; right: 16px; width: 210px; transform: rotate(-1.5deg); }
+
+  /* Mais espaço nas laterais aqui, então as rosas podem ultrapassar
+     a borda da foto com mais generosidade. */
+  .photo__roses {
+    inset: -14%;
+  }
+}

@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Animações — transição cinematográfica entre telas, reduced motion
+   ========================================================================== */
+
+.screen-intro {
+  transition: opacity var(--duration-transition) var(--ease-elegant),
+              filter var(--duration-transition) var(--ease-elegant),
+              transform var(--duration-transition) var(--ease-elegant),
+              visibility 0s linear var(--duration-transition);
+}
+
+body[data-stage='letter'] .screen-intro {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(-2.5vh);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body[data-stage='letter'] .screen-intro,
+body[data-stage='intro'] .screen-letter {
+  pointer-events: none;
+}
+
+.screen-letter {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: opacity var(--duration-transition) var(--ease-elegant),
+              filter var(--duration-transition) var(--ease-elegant),
+              transform var(--duration-transition) var(--ease-elegant);
+}
+
+body[data-stage='intro'] .screen-letter {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(3vh);
+}
+
+/* --------------------------------------------------------------------------
+   prefers-reduced-motion: sem blur, sem deslocamento — apenas crossfade
+   rápido, e sem elevação/zoom nas fotos (a revelação das rosas continua,
+   pois é uma mudança de opacidade, não um movimento).
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .screen-intro,
+  .screen-letter {
+    transition-duration: 200ms, 200ms, 1ms, 1ms;
+    transition-timing-function: linear;
+  }
+
+  body[data-stage='letter'] .screen-intro,
+  body[data-stage='intro'] .screen-letter {
+    filter: none;
+    transform: none;
+  }
+
+  .btn-start:hover {
+    transform: none;
+  }
+
+  .photo:hover .photo__img,
+  .photo:focus-within .photo__img,
+  .photo.is-active .photo__img {
+    transform: none;
+    transition-duration: 150ms;
+  }
+
+  .photo__roses {
+    transition-duration: 150ms;
+  }
+}

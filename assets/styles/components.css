@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Componentes — botão inicial, controle de música, interação das fotos
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Botão "CLIQUE AQUI"
+   -------------------------------------------------------------------------- */
+
+.btn-start {
+  appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 3px;
+  padding: 0.85em 2.25em;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-fg);
+  transition: transform var(--duration-hover) var(--ease-elegant),
+              background-color var(--duration-hover) var(--ease-elegant),
+              box-shadow var(--duration-hover) var(--ease-elegant);
+}
+
+.btn-start:hover {
+  background-color: rgba(255, 0, 0, 0.045);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.btn-start:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Controle de música — discreto, não é um player convencional
+   -------------------------------------------------------------------------- */
+
+.music-toggle {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 20;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  appearance: none;
+  cursor: pointer;
+  background: rgba(255, 250, 240, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  color: var(--color-fg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity var(--duration-transition) var(--ease-elegant),
+              transform var(--duration-transition) var(--ease-elegant),
+              visibility 0s linear var(--duration-transition),
+              border-color 200ms ease;
+}
+
+body[data-stage='letter'] .music-toggle {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--duration-transition) var(--ease-elegant),
+              transform var(--duration-transition) var(--ease-elegant),
+              border-color 200ms ease;
+}
+
+.music-toggle:hover {
+  border-color: var(--color-accent);
+}
+
+.music-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.music-toggle .icon-pause {
+  display: none;
+}
+
+.music-toggle[aria-pressed='true'] .icon-play {
+  display: none;
+}
+
+.music-toggle[aria-pressed='true'] .icon-pause {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Fotografias — elevação e rosas nascendo por trás no hover/toque
+   -------------------------------------------------------------------------- */
+
+.photo:hover .photo__img,
+.photo:focus-within .photo__img,
+.photo.is-active .photo__img {
+  transform: translateY(-10px) scale(1.035);
+  box-shadow: 0 26px 46px rgba(0, 0, 0, 0.16);
+}
+
+.photo:hover .photo__roses,
+.photo:focus-within .photo__roses,
+.photo.is-active .photo__roses {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.photo__img {
+  outline-offset: 4px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
