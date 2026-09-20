@@ -269,6 +269,24 @@ body[data-stage='intro'] .screen-letter {
 .photo--11 { --rotate: 1deg; }
 .photo--12 { --rotate: -3deg; }
 
+/* Enquadramento (object-position) ajustado individualmente após ver cada
+   fotografia: todas são 3:4 e o container é 4:5, então o object-fit: cover
+   só precisa recortar uma fatia pequena (~3% de cada borda) — o valor
+   abaixo escolhe QUAL fatia cortar em cada foto para nunca cair sobre um
+   rosto, priorizando manter rostos e a cena principal visíveis. */
+.photo--1  .photo__img { object-position: 50% 42%; }
+.photo--2  .photo__img { object-position: 50% 32%; }
+.photo--3  .photo__img { object-position: 50% 28%; }
+.photo--4  .photo__img { object-position: 50% 40%; }
+.photo--5  .photo__img { object-position: 50% 30%; }
+.photo--6  .photo__img { object-position: 50% 40%; }
+.photo--7  .photo__img { object-position: 50% 30%; }
+.photo--8  .photo__img { object-position: 50% 28%; }
+.photo--9  .photo__img { object-position: 50% 35%; }
+.photo--10 .photo__img { object-position: 50% 32%; }
+.photo--11 .photo__img { object-position: 50% 26%; }
+.photo--12 .photo__img { object-position: 50% 42%; }
+
 /* --------------------------------------------------------------------------
    Composição editorial ampla — fotos "espalhadas" ao redor do texto.
    Ativa apenas a partir de 1300px, onde há espaço horizontal garantido

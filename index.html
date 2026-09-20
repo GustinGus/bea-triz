@@ -86,23 +86,22 @@
   <div class="letter">
 
     <!--
-      FOTOGRAFIAS — placeholders (estrutura preparada para 12 fotografias).
-      Para substituir por fotos reais: troque o "src" de cada <img> por
-      assets/images/photos/sua-foto.jpg (ou .webp/.avif) e escreva uma
-      descrição real no "alt". Não altere as classes photo--1..12 nem a
-      estrutura do .photo__roses — elas controlam a posição editorial e
-      a animação das rosas. Se tiver menos de 12 fotos, é só apagar as
-      figuras <figure class="photo photo--N"> extras (de trás para a
-      frente, ex.: primeiro photo--12, depois photo--11...) — o restante
-      da composição se ajusta sozinho.
+      FOTOGRAFIAS — 12 fotos reais (assets/images/photos/1.jpeg..12.jpeg),
+      servidas como WebP otimizado (assets/images/photos/1.webp..12.webp;
+      os .jpeg originais permanecem intactos como fonte). Não altere as
+      classes photo--1..12 nem a estrutura do .photo__roses — elas
+      controlam a posição editorial e a animação das rosas. O enquadramento
+      vertical de cada foto (object-position) foi ajustado individualmente
+      em assets/styles/layout.css, olhando cada fotografia, para o corte
+      do object-fit: cover nunca cair em cima de um rosto.
     -->
     <figure class="photo photo--1">
       <div class="photo__roses" aria-hidden="true">
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-1.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/1.webp"
+           alt="Selfie do casal em ambiente externo à noite, próximos um do outro" width="900" height="1201">
     </figure>
 
     <figure class="photo photo--2">
@@ -110,8 +109,8 @@
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-2.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/2.webp"
+           alt="Casal sorridente ao ar livre, com carros e um gramado ao fundo" width="900" height="1201">
     </figure>
 
     <figure class="photo photo--3">
@@ -119,8 +118,8 @@
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-3.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/3.webp"
+           alt="Casal sorrindo em frente a um mural ilustrado, em ambiente interno" width="900" height="1201">
     </figure>
 
     <!--
@@ -144,8 +143,8 @@
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-4.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/4.webp"
+           alt="Selfie do casal em frente a um espelho, em ambiente doméstico" width="900" height="1200" loading="lazy">
     </figure>
 
     <figure class="photo photo--5">
@@ -153,8 +152,8 @@
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-5.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/5.webp"
+           alt="Retrato em ambiente escuro, com luz alaranjada iluminando o rosto" width="900" height="1200" loading="lazy">
     </figure>
 
     <div class="letter__text">
@@ -166,8 +165,8 @@
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-6.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/6.webp"
+           alt="Selfie em espelho de teto refletindo o rosto, com plantas ao fundo" width="900" height="1200" loading="lazy">
     </figure>
 
     <div class="letter__text">
@@ -179,8 +178,8 @@
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-7.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/7.webp"
+           alt="Casal sorridente ao ar livre, sobre uma formação rochosa" width="900" height="1201" loading="lazy">
     </figure>
 
     <figure class="photo photo--8">
@@ -188,8 +187,8 @@
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-8.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/8.webp"
+           alt="Casal sorridente ao ar livre, próximo a uma formação rochosa" width="900" height="1201" loading="lazy">
     </figure>
 
     <div class="letter__text">
@@ -207,8 +206,8 @@
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-9.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/9.webp"
+           alt="Casal sorridente segurando um gato preto e branco" width="900" height="1201" loading="lazy">
     </figure>
 
     <figure class="photo photo--10">
@@ -216,8 +215,8 @@
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-10.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/10.webp"
+           alt="Casal encostado um no outro, segurando um gatinho preto e branco" width="900" height="1201" loading="lazy">
     </figure>
 
     <figure class="photo photo--11">
@@ -225,8 +224,8 @@
         <svg class="rose rose--c"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-11.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/11.webp"
+           alt="Retrato de perto olhando para um gato preto e branco no colo" width="900" height="1200" loading="lazy">
     </figure>
 
     <figure class="photo photo--12">
@@ -234,8 +233,8 @@
         <svg class="rose rose--a"><use href="#rose-line-art"></use></svg>
         <svg class="rose rose--b"><use href="#rose-line-art"></use></svg>
       </div>
-      <img class="photo__img" tabindex="0" src="assets/images/photos/placeholder-12.svg"
-           alt="[Adicione uma descrição desta fotografia]" width="480" height="600" loading="lazy">
+      <img class="photo__img" tabindex="0" src="assets/images/photos/12.webp"
+           alt="Selfie do casal em ambiente escuro, próximos um do outro" width="900" height="1201" loading="lazy">
     </figure>
 
   </div>
