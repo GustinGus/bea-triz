@@ -310,31 +310,35 @@ body[data-stage='intro'] .screen-letter {
 @media (min-width: 1300px) {
   .letter {
     display: block;
-    min-height: 150rem;
+    min-height: 108rem;
     padding-bottom: var(--space-9);
   }
 
-  /* Cada lado (esquerda/direita) tem 6 fotos distribuídas em passos de
-     ~17% da altura da carta — bem mais que a altura de uma foto (~250-
-     280px mesmo num container de 150rem/2400px), então duas fotos do
-     mesmo lado nunca se tocam, além de nunca invadir a coluna de texto. */
+  /* Cada lado (esquerda/direita) tem 6 fotos empilhadas com folga de
+     ~28px entre a base de uma e o topo da próxima (folga real, calculada
+     a partir da altura de cada foto — largura x 1.25 do aspect-ratio
+     4/5 — não um valor arbitrário), começando bem perto do topo da carta
+     e acompanhando de perto a extensão real do texto, em vez de se
+     espalhar por um container muito mais alto que o conteúdo. As duas
+     colunas começam em alturas diferentes (16px / 56px) para não formar
+     grade — left/right/width/rotação de cada foto continuam as mesmas. */
   .photo {
     position: absolute;
     margin: 0;
   }
 
   .photo--1  { top: 1%;   left: 10px;  width: 200px; --rotate: -3deg; }
-  .photo--2  { top: 5%;   right: 16px; width: 180px; --rotate: 2deg; }
-  .photo--3  { top: 18%;  left: 0px;   width: 175px; --rotate: 2.5deg; }
-  .photo--4  { top: 22%;  right: 18px; width: 205px; --rotate: -1.5deg; }
-  .photo--5  { top: 35%;  left: 14px;  width: 210px; --rotate: 1.5deg; }
-  .photo--6  { top: 39%;  right: 6px;  width: 185px; --rotate: -2.5deg; }
-  .photo--7  { top: 52%;  left: 4px;   width: 195px; --rotate: 2deg; }
-  .photo--8  { top: 56%;  right: 20px; width: 200px; --rotate: -1deg; }
-  .photo--9  { top: 69%;  left: 12px;  width: 180px; --rotate: 3deg; }
-  .photo--10 { top: 73%;  right: 2px;  width: 210px; --rotate: -2deg; }
-  .photo--11 { top: 86%;  left: 18px;  width: 190px; --rotate: 1.5deg; }
-  .photo--12 { top: 90%;  right: 8px;  width: 200px; --rotate: -2.5deg; }
+  .photo--2  { top: 3%;   right: 16px; width: 180px; --rotate: 2deg; }
+  .photo--3  { top: 17%;  left: 0px;   width: 175px; --rotate: 2.5deg; }
+  .photo--4  { top: 18%;  right: 18px; width: 205px; --rotate: -1.5deg; }
+  .photo--5  { top: 31%;  left: 14px;  width: 210px; --rotate: 1.5deg; }
+  .photo--6  { top: 34%;  right: 6px;  width: 185px; --rotate: -2.5deg; }
+  .photo--7  { top: 48%;  left: 4px;   width: 195px; --rotate: 2deg; }
+  .photo--8  { top: 49%;  right: 20px; width: 200px; --rotate: -1deg; }
+  .photo--9  { top: 64%;  left: 12px;  width: 180px; --rotate: 3deg; }
+  .photo--10 { top: 65%;  right: 2px;  width: 210px; --rotate: -2deg; }
+  .photo--11 { top: 78%;  left: 18px;  width: 190px; --rotate: 1.5deg; }
+  .photo--12 { top: 82%;  right: 8px;  width: 200px; --rotate: -2.5deg; }
 
   /* Mais espaço nas laterais aqui, então as rosas podem ultrapassar
      a borda da foto com mais generosidade. */
