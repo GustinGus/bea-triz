@@ -11,6 +11,8 @@
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   const transitionDuration = () => (reducedMotionQuery.matches ? 220 : 900);
 
+  audio.volume = 0.35;
+
   let started = false;
 
   function setMusicToggleState(isPlaying) {

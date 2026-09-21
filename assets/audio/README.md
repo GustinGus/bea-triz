@@ -8,6 +8,6 @@ assets/audio/musica.mp3
 
 Formato recomendado: MP3 (compatibilidade ampla) ou OGG como alternativa. Evite arquivos muito grandes — algo em torno de 3–6 MB já cobre a maior parte das músicas com boa qualidade perceptual.
 
-Até que o arquivo real seja adicionado, o elemento `<audio>` em `index.html` aponta para este caminho mas não há arquivo — o navegador simplesmente não reproduz nada (sem erros visíveis para quem visita o site) e o botão de música permanece funcional, pronto para tocar assim que o arquivo existir.
+`musica.mp3` já está presente (Tribalistas — Velha Infância) e integrado: toca a partir do clique em "CLIQUE AQUI" (junto com a transição para a carta), começa em 35% de volume, e o botão discreto no canto permite pausar/retomar sem reiniciar a música.
 
-Não é necessário alterar nenhum código depois de adicionar o arquivo — apenas salve-o com o nome `musica.mp3` nesta pasta.
+Para trocar a música no futuro, basta substituir este arquivo mantendo o nome `musica.mp3` — nenhum código precisa mudar.
