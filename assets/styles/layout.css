@@ -161,6 +161,17 @@ body[data-stage='intro'] .screen-letter {
   padding: 0.03em 0.09em 0 0;
 }
 
+/* Linha de maior destaque perto do encerramento — mesma tipografia serif
+   e mesma cor de texto do restante da carta, só em escala maior, sem
+   nenhum elemento novo (sem cor extra, sem ícone). */
+.letter__shout {
+  font-size: clamp(1.5rem, 1.15rem + 1.8vw, 2.375rem);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.25;
+  margin: var(--space-8) 0 0;
+}
+
 /* Marca de encerramento — uma única rosa pequena e discreta acima da
    assinatura, no lugar de um selo/coração genérico. */
 .letter__mark {
