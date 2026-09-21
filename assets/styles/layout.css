@@ -303,42 +303,48 @@ body[data-stage='intro'] .screen-letter {
    Ativa apenas a partir de 1300px, onde há espaço horizontal garantido
    nas laterais do texto (medida de leitura) sem nunca sobrepor a coluna
    central. Abaixo disso as fotos permanecem no fluxo (regras acima).
-   Larguras e distâncias mantidas propositalmente conservadoras (<=210px,
-   deslocamento <=20px) para que, mesmo com o "sangramento" das rosas no
-   hover, nada se aproxime da borda da viewport em nenhuma largura testada.
+   photo--1..10 ficam coladas nas bordas esquerda/direita (largura <=210px,
+   deslocamento <=20px da borda), então mesmo com o "sangramento" das
+   rosas no hover nada se aproxima da borda da viewport. photo--11/12 são
+   a exceção: ficam centralizadas como par final abaixo da assinatura —
+   ver comentário mais abaixo — e por estarem bem longe das bordas
+   laterais, o sangramento das rosas ali também nunca chega perto delas.
    -------------------------------------------------------------------------- */
 @media (min-width: 1300px) {
   .letter {
     display: block;
-    min-height: 108rem;
+    min-height: 91rem;
     padding-bottom: var(--space-9);
   }
 
-  /* Cada lado (esquerda/direita) tem 6 fotos empilhadas com folga de
-     ~28px entre a base de uma e o topo da próxima (folga real, calculada
-     a partir da altura de cada foto — largura x 1.25 do aspect-ratio
-     4/5 — não um valor arbitrário), começando bem perto do topo da carta
-     e acompanhando de perto a extensão real do texto, em vez de se
-     espalhar por um container muito mais alto que o conteúdo. As duas
-     colunas começam em alturas diferentes (16px / 56px) para não formar
-     grade — left/right/width/rotação de cada foto continuam as mesmas. */
+  /* photo--1..10 usam a mesma posição visual de antes (só trocadas de %
+     para px, em pixels medidos do layout já aprovado) — top em % teria
+     reescalado TODAS elas quando min-height mudasse de novo; em px elas
+     ficam imunes a isso. Só photo--11 e photo--12 têm posição nova:
+     saíram do fim da coluna lateral e foram centralizadas logo abaixo
+     da assinatura, lado a lado, como o par final da carta. */
   .photo {
     position: absolute;
     margin: 0;
   }
 
-  .photo--1  { top: 1%;   left: 10px;  width: 200px; --rotate: -3deg; }
-  .photo--2  { top: 3%;   right: 16px; width: 180px; --rotate: 2deg; }
-  .photo--3  { top: 17%;  left: 0px;   width: 175px; --rotate: 2.5deg; }
-  .photo--4  { top: 18%;  right: 18px; width: 205px; --rotate: -1.5deg; }
-  .photo--5  { top: 31%;  left: 14px;  width: 210px; --rotate: 1.5deg; }
-  .photo--6  { top: 34%;  right: 6px;  width: 185px; --rotate: -2.5deg; }
-  .photo--7  { top: 48%;  left: 4px;   width: 195px; --rotate: 2deg; }
-  .photo--8  { top: 49%;  right: 20px; width: 200px; --rotate: -1deg; }
-  .photo--9  { top: 64%;  left: 12px;  width: 180px; --rotate: 3deg; }
-  .photo--10 { top: 65%;  right: 2px;  width: 210px; --rotate: -2deg; }
-  .photo--11 { top: 78%;  left: 18px;  width: 190px; --rotate: 1.5deg; }
-  .photo--12 { top: 82%;  right: 8px;  width: 200px; --rotate: -2.5deg; }
+  .photo--1  { top: 12px;   left: 10px;  width: 200px; --rotate: -3deg; }
+  .photo--2  { top: 49px;   right: 16px; width: 180px; --rotate: 2deg; }
+  .photo--3  { top: 290px;  left: 0px;   width: 175px; --rotate: 2.5deg; }
+  .photo--4  { top: 308px;  right: 18px; width: 205px; --rotate: -1.5deg; }
+  .photo--5  { top: 533px;  left: 14px;  width: 210px; --rotate: 1.5deg; }
+  .photo--6  { top: 584px;  right: 6px;  width: 185px; --rotate: -2.5deg; }
+  .photo--7  { top: 829px;  left: 4px;   width: 195px; --rotate: 2deg; }
+  .photo--8  { top: 848px;  right: 20px; width: 200px; --rotate: -1deg; }
+  .photo--9  { top: 1105px; left: 12px;  width: 180px; --rotate: 3deg; }
+  .photo--10 { top: 1123px; right: 2px;  width: 210px; --rotate: -2deg; }
+
+  /* Par final — abaixo de "Com todo o meu amor, / Gu." (a assinatura
+     termina por volta de 954px, com a marca de rosa logo acima dela),
+     com ~50-70px de respiro antes delas e ~70px de vão entre as duas,
+     centralizadas em vez de coladas na borda como as demais. */
+  .photo--11 { top: 1004px; left: 430px; width: 190px; --rotate: 1.5deg; }
+  .photo--12 { top: 1024px; left: 690px; width: 200px; --rotate: -2.5deg; }
 
   /* Mais espaço nas laterais aqui, então as rosas podem ultrapassar
      a borda da foto com mais generosidade. */
